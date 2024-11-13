@@ -1,0 +1,5 @@
+- `sudo dnf install httpd mysql mysql-server php`
+  - Installs Apache, MySQL, & PHP
+- `systemctl enable --now httpd.service`
+  - enables and lauches httpd.service
+  - in a web browser type in http://localhost to test if it works
