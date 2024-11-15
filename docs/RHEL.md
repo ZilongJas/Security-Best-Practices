@@ -31,4 +31,8 @@ ___
   - `sudo dnf install nss-mdns` (allows hostname for .local domains)
   - `sudo systemctl restart httpd`
   - reboot
-  - why? so the apache serves a default site (localhost) if no specific virtual host matches the request. aka a landing page for unmatched or mistyped domains. 
+  - why? so the apache serves a default site (localhost) if no specific virtual host matches the request. aka a landing page for unmatched or mistyped domains.
+___
+### Extras
+- `sudo systemctl stop firewalld`
+  - disables the firewall when testing incase it is blocking network traffic 
