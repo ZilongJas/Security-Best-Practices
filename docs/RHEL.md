@@ -26,7 +26,7 @@ ___
 - `sudo restorecon -R /var/www/html/`
   - refresh the file context incase some files are missing/incorrect etc...
 - remember to restart httpd.service when changing configs
-- inside `/etc/httpd/conf.d` copy [rocky.local.conf](/docs/rocky.local.conf) to a new file called [000-default.conf](/docs/000-default-conf)
+- inside `/etc/httpd/conf.d` copy [rocky.local.conf](/docs/rocky.local.conf) to a new file called [000-default.conf](/docs/000-default.conf)
   - `sudo mkdir /var/www/html/localhost`
   - `sudo dnf install nss-mdns` (allows hostname for .local domains)
   - `sudo systemctl restart httpd`
