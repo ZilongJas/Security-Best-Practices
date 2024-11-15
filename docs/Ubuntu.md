@@ -1,5 +1,7 @@
-`apt remove --purge 'php*'`
-`apt remove --purge 'libapache2-mod-php*'`
+- `apt remove --purge 'php*'`
+- `apt remove --purge 'libapache2-mod-php*'`
   - removes prevous installed PHP to prevent some errors (and reinstall them fresh)
-`sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php`
+- `sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php`
   - installs the nesscary tools (LAMP)
+- `system status apache2.service`
+  - checks the status, if not enabled `systemctl enable --now apache2.service`
