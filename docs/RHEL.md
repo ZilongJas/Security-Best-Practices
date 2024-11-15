@@ -16,7 +16,7 @@ ___
 ### Changing ports
 - in the main config under "Listen" enter `Listen [port #]`
 ___
-### VirtualHost: serve multiple pages from the same httpd instance
+### VirtualHost: host multiple websites on the same server
 - Inherit all configs in the main config file
 - create a conf file in `/etc/httpd/conf.d` called `[hostname].local.conf`
   - ex: [rocky.local.conf](/docs/rocky.local.conf)
@@ -32,6 +32,9 @@ ___
   - `sudo systemctl restart httpd`
   - reboot
   - why? so the apache serves a default site (localhost) if no specific virtual host matches the request. aka a landing page for unmatched or mistyped domains.
+- SUMMARY:
+  - virtualhosts are localed in `/var/www/html/`
+  - configurations are localted in `/etc/httpd/conf.d/`
 ___
 ### Extras
 - `sudo systemctl stop firewalld`
