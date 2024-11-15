@@ -18,4 +18,17 @@ ___
 ___
 ### VirtualHost: serve multiple pages from the same httpd instance
 - Inherit all configs in the main config file
-- create a conf file in `/etc/httpd/conf.d` called `[hostname].local.conf` 
+- create a conf file in `/etc/httpd/conf.d` called `[hostname].local.conf`
+  - ex: [rocky.local.conf](/docs/rocky.local.conf)
+- `sudo mkdir /var/www/html/rocky.local`
+- `sudo nano /var/www/html/rocky.local/index.html`
+  - makes a start page
+- `sudo restorecon -R /var/www/html/`
+  - refresh the file context incase some files are missing/incorrect etc...
+- remember to restart httpd.service when changing configs
+- inside `/etc/httpd/conf.d` copy [rocky.local.conf](/docs/rocky.local.conf) to a new file called `000-default.conf`
+  - `sudo mkdir /var/www/html/localhost`
+  - `sudo dnf install nss-mdns` (allows hostname for .local domains)
+  - `sudo systemctl restart httpd`
+  - reboot
+  - why? so the apache serves a default site (localhost) if no specific virtual host matches the request
