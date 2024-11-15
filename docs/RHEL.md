@@ -33,9 +33,27 @@ ___
   - reboot
   - why? so the apache serves a default site (localhost) if no specific virtual host matches the request. aka a landing page for unmatched or mistyped domains.
 - SUMMARY:
-  - virtualhosts are localed in `/var/www/html/`
-  - configurations are localted in `/etc/httpd/conf.d/`
+  - virtualhost htmls are localed in `/var/www/html/`
+  - virtualhost configurations are localted in `/etc/httpd/conf.d/`
 ___
 ### Extras
 - `sudo systemctl stop firewalld`
-  - disables the firewall when testing incase it is blocking network traffic 
+  - disables the firewall when testing incase it is blocking network traffic
+- logs: EXAMPLES
+  - error log: when permissive files gets denied.
+  - custom log: whenever the website is accessed (almost logs everything)
+  - use `tail -f [log]` to follow the logs in real time
+___
+### PHP
+- 
+
+
+
+
+
+
+
+
+
+
+
