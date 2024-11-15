@@ -15,4 +15,7 @@ ___
 ___
 ### Changing ports
 - in the main config under "Listen" enter `Listen [port #]`
-
+___
+### VirtualHost: serve multiple pages from the same httpd instance
+- Inherit all configs in the main config file
+- create a conf file in `/etc/httpd/conf.d` called `[hostname].local.conf` 
