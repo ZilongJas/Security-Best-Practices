@@ -49,8 +49,23 @@ ___
 - `cd /var/www/html/rocky.local/`
   - `sudo nano phpinfo.php`
   - creates a php file, visit `http://[hostname].local/phpinfo.php`
-
-
+___
+### MySQL
+- `systemctl status mysqld`
+- `sudo systemctl enable --now mysqld`
+  - enables mysqld
+- `sudo mysql -u root`
+  - login as root in mysql
+___
+### Setting up MySQL
+- `USE mysql`
+  - selects a database to work with, must be inside the mysql server shell already
+- `CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';`
+  - creates an admin user for our database
+- `GRAND ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRAND OPTION;`
+  - grants privileges
+- `FLUSH PRIVILEGES;`
+  - refreshes and applies the changes into memory
 
 
 
