@@ -26,6 +26,13 @@ ___
   - note: the numbers is important, since you want the default virtualhost to be first hence the "000"
 - `envvars` inside /etc/apache2 is a bash script that sets environment variables that Apache uses when it starts, also used to define paths, user/group information, or custsom variables
 - and of course remember to restart apache2.service to apply changes
+___
+### PHP
+- by default it is configured as an Apache module, meaning PHP is with Apache (different from RHEL!)
+- `cd /var/www/html/`
+  - `sudo nano phpinfo.php`
+  - visit `http://[hostname].local/phpinfo.php`
+  - if it does not work, you need to chmod some permissions, and enable services such as `a2enmod php[version#]` 
 
 
 
