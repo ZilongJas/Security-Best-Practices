@@ -48,7 +48,7 @@ ___
 - configured through php-fpm, meaning it's a separate service just for running PHP (different on ubuntu!)
 - `cd /var/www/html/rocky.local/`
   - `sudo nano phpinfo.php`
-  - creates a php file, visit `http://rocky.local/phpinfo.php`
+  - creates a php file, visit `http://[hostname].local/phpinfo.php`
 
 
 
