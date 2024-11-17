@@ -32,7 +32,25 @@ ___
 - `cd /var/www/html/`
   - `sudo nano phpinfo.php`
   - visit `http://[hostname].local/phpinfo.php`
-  - if it does not work, you need to chmod some permissions, and enable services such as `a2enmod php[version#]` 
+  - if it does not work, you need to chmod some permissions, and enable services such as `a2enmod php[version#]`
+___
+### MySQL
+- `systemctl status mysql`
+- `sudo systemctl enable --now mysql`
+  - usually ubuntu automatically enables it, so might not need this step
+- `sudo mysql -u root`
+  - login as root in mysql
+___
+### Setting up MySQL
+- `USE mysql`
+  - selects a database to work with, must be inside the mysql server shell already
+- `CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';`
+  - creates an admin user for our database
+- `GRAND ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRAND OPTION;`
+  - grants privileges
+- `FLUSH PRIVILEGES;`
+  - refreshes and applies the changes into memory
+
 
 
 
