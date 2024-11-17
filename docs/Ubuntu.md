@@ -57,7 +57,8 @@ ___
 - `sudo apt install phpmyadmin` (during config, remember to use space to select options, a * will appear if selected)
 - config file located in `/etc/apache2/conf-enabled/phpmyadmin.conf`
 - `sudo systemctl restart apache2.service` restarts the service
-- now go to `http://[hostname].local/phpmyadmin` check if it works
+- now go to `http://[hostname].local/phpmyadmin`
+- add `Require local` inside the config file. So the website can only be accessed locally on your machine. Just below <Directory /usr/share/phpmyadmin>
 
 
 
