@@ -16,7 +16,7 @@ ___
 ### Changing ports
 - in the main config under "Listen" enter `Listen [port #]`
 ___
-### VirtualHost: host multiple websites on the same server
+### VirtualHost: hprivileges or has restrictions preventing login from localhost multiple websites on the same server
 - Inherit all configs in the main config file
 - create a conf file in `/etc/httpd/conf.d` called `[hostname].local.conf`
   - ex: [rocky.local.conf](/docs/rocky.local.conf)
@@ -61,14 +61,20 @@ ___
 - `USE mysql`
   - selects a database to work with, must be inside the mysql server shell already
 - `CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';`
-  - creates an admin user for our database
+  - creates an admin user for our database (change your password)
 - `GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;`
   - grants privileges
 - `FLUSH PRIVILEGES;`
   - refreshes and applies the changes into memory
-
-
-
+- `quit` to exit root and then login as the admin we just created: `mysql -u admin -p`
+  - TIP! `system clear;` to clear screen
+___
+### Installing phpmyadmin
+- `sudo dnf install phpmyadmin`
+- go to `phpMyAdmin.conf` in `/etc/httpd/conf.d`
+- visit `http://[localname].local/phpmyadmin`
+  - only works locally
+- disable firewall if it's blocking you from doing this `sudo systemctl stop firewalld`
 
 
 
