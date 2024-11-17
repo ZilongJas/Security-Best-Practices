@@ -59,6 +59,8 @@ ___
 - `sudo systemctl restart apache2.service` restarts the service
 - now go to `http://[hostname].local/phpmyadmin`
 - add `Require local` inside the config file. So the website can only be accessed locally on your machine. Just below <Directory /usr/share/phpmyadmin>
-
+___
+### Setting up databse for WordPress
+- 
 
 
