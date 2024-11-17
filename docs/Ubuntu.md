@@ -54,8 +54,10 @@ ___
   - TIP! `system clear;` to clear screen
 ___
 ### Installing phpmyadmin
-- 
-
+- `sudo apt install phpmyadmin` (during config, remember to use space to select options, a * will appear if selected)
+- config file located in `/etc/apache2/conf-enabled/phpmyadmin.conf`
+- `sudo systemctl restart apache2.service` restarts the service
+- now go to `http://[hostname].local/phpmyadmin` check if it works
 
 
 
