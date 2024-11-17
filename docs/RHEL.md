@@ -45,7 +45,9 @@ ___
   - use `tail -f [log]` to follow the logs in real time
 ___
 ### PHP
-- 
+- `cd /var/www/html/rocky.local/`
+  - `sudo nano phpinfo.php`
+  - creates a php file, visit `http://rocky.local/phpinfo.php`
 
 
 
