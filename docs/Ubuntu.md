@@ -59,8 +59,20 @@ ___
 - `sudo systemctl restart apache2.service` restarts the service
 - now go to `http://[hostname].local/phpmyadmin`
 - add `Require local` inside the config file. So the website can only be accessed locally on your machine. Just below <Directory /usr/share/phpmyadmin>
+- in phpmyadmin, add an user account
+  - set hostname to `local`
+  - check the box `Create database with same name and grant all privileges`
 ___
-### Setting up databse for WordPress
-- 
+### WordPress
+- https://wordpress.org download and extract
+- on ubuntu go to `/var/www/html` delete everything inside and copy the wordpress files into here
+- setup wordpress, use the same password as phpmyadmin. Follow instructions on the setup site
+- after install, setup a password but do not use the same password this time
+- in wordpress settings, general. Change wordpress address and site address url to [something.local] to avoid conflicts, incase multiple local projects are hosted on the same machine
+
+
+
+
+
 
 
