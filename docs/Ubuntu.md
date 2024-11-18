@@ -69,9 +69,18 @@ ___
 - setup wordpress, use the same password as phpmyadmin. Follow instructions on the setup site
 - after install, setup a password but do not use the same password this time
 - in wordpress settings, general. Change wordpress address and site address url to [something.local] to avoid conflicts, incase multiple local projects are hosted on the same machine
+___
+### .htaccess file
+- create one inside `/var/www/html`
+- `sudo chmod www-data:www-data .htaccess`
+- inside `/etc/apache2/sites-enabled/000-default.conf` at the bottom enter
 
-
-
+        `<Directory /var/www/html>
+                AllowOverride ALL
+         </Directory>`
+  
+- restart apache.service
+- used for URL rewriting, redirects, access control, custom error pages, password protection, caching etc...
 
 
 
