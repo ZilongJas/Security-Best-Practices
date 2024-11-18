@@ -75,7 +75,43 @@ ___
 - visit `http://[localname].local/phpmyadmin`
   - only works locally
 - disable firewall if it's blocking you from doing this `sudo systemctl stop firewalld`
+___
+*Everything below here MIGHT be different on RHEL, so beware
+### WordPress
+- https://wordpress.org download and extract
+- on ubuntu go to `/var/www/html` delete everything inside and copy the wordpress files into here
+- setup wordpress, use the same password as phpmyadmin. Follow instructions on the setup site
+- after install, setup a password but do not use the same password this time
+- in wordpress settings, general. Change wordpress address and site address url to [something.local] to avoid conflicts, incase multiple local projects are hosted on the same machine
+___
+### .htaccess file
+- create one inside `/var/www/html`
+- `sudo chmod www-data:www-data .htaccess`
+- inside `/etc/apache2/sites-enabled/000-default.conf` at the bottom enter
 
+        <Directory /var/www/html>
+                AllowOverride ALL
+         </Directory>
+  
+- restart apache.service
+- used for URL rewriting, redirects, access control, custom error pages, password protection, caching etc...
+___ 
+### Protect a Directory with a Password
+- `sudo htpasswd -c [file] [user]`
+- filename: `.htpasswd`
+- in the same folder as `.htaccess` file
+- `sudo chown www-data:www-data .htpasswd`
+  - make the webserver user the owner of this file (do this for other webserver files if things are not working)
+- inside .htacess file for auth:
+  
+      AuthName "Login required!"
+      Require valid-user
+      AuthUserFile /var/www/html/.htpasswd
+___
+### SSH Tunnel
+- enter on your main machine (not the server) `ssh -L 8088:localhost:80 username@[hostname].local -p 222`
+  - forwards our port 8088 through ssh
+  - going `localhost:8088/phpmyadmin` will now work through a ssh tunnel BUT only if you are connected through the ssh command already. Existing the ssh connection will close the connection
 
 
 
