@@ -73,14 +73,27 @@ ___
 ### .htaccess file
 - create one inside `/var/www/html`
 - `sudo chmod www-data:www-data .htaccess`
+- inside .htacess file for auth:
+  
+      AuthName "Login required!"
+      Require valid-user
+      AuthUserFile /var/www/html/.htpasswd
+
 - inside `/etc/apache2/sites-enabled/000-default.conf` at the bottom enter
 
-        `<Directory /var/www/html>
+        <Directory /var/www/html>
                 AllowOverride ALL
-         </Directory>`
+         </Directory>
   
 - restart apache.service
 - used for URL rewriting, redirects, access control, custom error pages, password protection, caching etc...
+___ 
+### Proect a Directory with a Password
+- `htpasswd [file] [user]`
+- filename: `.htpasswd`
+- in the same folder as `.htaccess` file
+- `sudo chown www-data:www-data .htpasswd`
+  - make the webserver user the owner of this file (do this for other webserver files if things are not working)
 
 
 
