@@ -168,11 +168,21 @@ ausearch -ts recent
 journalctl -t setroubleshoot --since=14:20
 ```
 - Once you find an entry, you can query journalctl
+___
+### Managing ports
+        sudo semanage port -l
+- list ports
 
-
-
-
-
+        semanage port -a -t http_port_t -p tcp 8888
+- add an additional port
+- -a: add port
+- -t type
+- -p protocol
+___
+### Disabling SELinux during boot
+- If we log our self out with the wrong rule(s)
+- in GRUB menu, press `e` and add `selinux=0`
+- or add `selinux=1` and `enforcing=0` if the above does not work
 
 
 
