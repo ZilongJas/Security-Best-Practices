@@ -36,8 +36,41 @@ sudo firewall-cmd --state
 ```bash
 sudo firewall-cmd --list-all
 ```
-
-
+___
+### Ubuntu
+- on Ubuntu, we have ufw (uncomplicated firewall). We want to install firewalld instead because it is more advanced
+```bash
+sudo ufw disable
+```
+```bash
+sudo apt install firewalld
+```
+```bash
+sudo systemctl enable --now firewalld
+```
+___
+### RHEL
+```bash
+/etc/firewalld/
+```
+services folder on RHEL, but avoid editing files directly
+```bash
+sudo firewall-cmd --help
+```
+EXAMPLE:
+```bash
+sudo firewall-cmd --permanent --service=[service] --add-port=[port]/tcp
+```
+___
+### more on firewalld
+```bash
+sudo firewall-cmd --get-services
+```
+for services
+```bash
+sudo firewall-cmd --info-service [service]
+```
+for info on the service
 
 
 
