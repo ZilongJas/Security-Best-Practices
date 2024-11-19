@@ -79,7 +79,26 @@ firewall-cmd --add-port=[port]/[protocol]
 ```
 Temporaily until next reboot, for permanent use `--permanent`
 Follow up with reload, `firewall-cmd --reload`
-
+___
+### Zones
+- EX: trusted, home, work, public, drop
+```bash
+sudo firewall-cmd --get-zones
+```
+for all zones on the system
+```bash
+sudo firewall-cmd --zone=[zone_name] --list-all
+```
+to view firewall rules for each of the zones 
+- zones are configured through these folders: `/usr/lib/firewalld/zones/` & `/etc/firewalld/zones/`
+```bash
+sudo firewall-cmd --get-default-zone
+```
+see which default zone you are in
+```bash
+sudo firewall-cmd --set-default-zone=[zone_name]
+```
+set a new zone 
 
 
 
