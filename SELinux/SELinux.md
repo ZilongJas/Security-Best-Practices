@@ -149,14 +149,25 @@ explanations about them
 
 - Temporarily:
 
-         setsebool httpd_read_user_content on
+         setsebool [boolean] on
          
 - Permanently:
 
-         setsebool -P httpd_read_user_content on
+         setsebool -P [boolean] on
+___
+### debugging
+- `/var/log/audit/audit.log`
+  - recorded in here
+```bash
+ausearch -ts recent
+```
+- By default, ausearch would display all violations of today
+- But with -ts recent, only the last 10 minutes will be shown
 
-
-
+```bash
+journalctl -t setroubleshoot --since=14:20
+```
+- Once you find an entry, you can query journalctl
 
 
 
