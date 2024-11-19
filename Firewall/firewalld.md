@@ -105,8 +105,11 @@ firewall-cmd --zone=[zone] --add-service=[service-name]
 ```bash
 firewall-cmd --zone=[zone] --add-port=[port]/[protocol]
 ```
-temporarily changing rules for a specific zone, for permanent change add `--permanent`
-
+temporarily changing rules for a specific zone, for permanent change add `--permanent`, reload firewall after. `sudo firewall-cmd --reload`
+```bash
+sudo firewall-cmd --zone=[zone_name] --change-interface=[new interface]
+```
+change interfaces (network cards)
 
 
 
