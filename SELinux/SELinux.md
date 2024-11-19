@@ -68,6 +68,11 @@ lists all the file context mappings
    
     Why? Without this step, the SELinux rules are just definitions—they won’t take effect until applied.
 
+`semanage fcontext [parameters]`
 
+- -l	List all existing file context rules.
+- -a	Add a new file context rule.
+- -d	Delete an existing file context rule.
+- -e	Map one directory's context rules to another directory.
 
 
