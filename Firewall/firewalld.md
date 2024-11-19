@@ -99,7 +99,13 @@ see which default zone you are in
 sudo firewall-cmd --set-default-zone=[zone_name]
 ```
 set a new zone 
-
+```bash
+firewall-cmd --zone=[zone] --add-service=[service-name]
+```
+```bash
+firewall-cmd --zone=[zone] --add-port=[port]/[protocol]
+```
+temporarily changing rules for a specific zone, for permanent change add `--permanent`
 
 
 
