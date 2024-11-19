@@ -3,6 +3,9 @@
 - ubuntu runs apparmor
 - developed by NSA, now open source
 - help prevent all sorts of attacks
+- Discretionary access control, which focuses its permissions on groups and users
+- Mandatory access control focuses on rules that grant permissions to specific processes
+
 ___
 ### Enabling / Disabling SELinux
 - `sudo getenforce` check if enforced
