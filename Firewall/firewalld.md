@@ -57,7 +57,7 @@ services folder on RHEL, but avoid editing files directly
 ```bash
 sudo firewall-cmd --help
 ```
-EXAMPLE:
+EXAMPLE of adding a port to a service:
 ```bash
 sudo firewall-cmd --permanent --service=[service] --add-port=[port]/tcp
 ```
@@ -71,7 +71,14 @@ for services
 sudo firewall-cmd --info-service [service]
 ```
 for info on the service
-
+___
+### Opening and Closing Services
+```bash
+firewall-cmd --add-service=[service-name]
+firewall-cmd --add-port=[port]/[protocol]
+```
+Temporaily until next reboot, for permanent use `--permanent`
+Follow up with reload, `firewall-cmd --reload`
 
 
 
