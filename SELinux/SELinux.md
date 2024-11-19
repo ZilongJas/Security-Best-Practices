@@ -74,5 +74,44 @@ lists all the file context mappings
 - -a	Add a new file context rule.
 - -d	Delete an existing file context rule.
 - -e	Map one directory's context rules to another directory.
+___
+### semanage fcontext vs restorecon
+- SELinux: `semanage fcontext` vs `restorecon`
 
+ What They Do:
+
+- **`semanage fcontext`**:
+  - Defines **default context rules** for files or directories.
+  - These are **persistent rules** that survive reboots.
+
+- **`restorecon`**:
+  - Applies the context rules defined by `semanage fcontext`.
+  - Ensures file labels match defined rules.
+
+## Analogy:
+- **`semanage fcontext`** = Blueprint for how files should be labeled.
+- **`restorecon`** = Worker that applies the labels using the blueprint.
+
+## Example Workflow:
+
+1. **Define a Rule**:
+    ```bash
+    semanage fcontext -a -t httpd_sys_content_t '/public(/.*)?'
+    ```
+    - Labels `/public` and all its files/directories as `httpd_sys_content_t`.
+
+2. **Apply the Rule**:
+    ```bash
+    restorecon -R /public
+    ```
+    - Updates `/public` with the correct label based on the rule.
+
+3. **Check Labels**:
+    ```bash
+    ls -Z /public
+    ```
+    - Shows the current SELinux labels.
+
+## Important Note:
+- Without defining rules using `semanage fcontext`, `restorecon` has nothing to apply, which may lead to incorrect labels and access issues.
 
