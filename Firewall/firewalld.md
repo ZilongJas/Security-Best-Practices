@@ -15,3 +15,39 @@ sudo ss -6nap
 - `n`: Displays numerical addresses instead of resolving hostnames.
 - `a`: Shows all sockets, including listening and non-listening sockets.
 - `p`: Displays the process using each socket, including the process ID (PID) and name
+___
+### Architecture of firewalld
+- Linux kernel: netfilter
+- Firewalld backends: nftables
+- Daemon and service: firewalld
+- Tools: firewall-cmd, firewall-config
+___
+### By default: firewalld
+- By default all incoming TCP and UDP connections will be blocked except the ones that are allowed
+- ssh (port 22) default enabled
+- dhcpv6-client (udp port 546) default enabled
+- IPv6 is enabled by default
+- Certain ICMP requests are blocked to prevent common network attacks (Ping, traceroute)
+___
+### Check current firewalld config
+```bash
+sudo firewall-cmd --state
+```
+```bash
+sudo firewall-cmd --list-all
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
