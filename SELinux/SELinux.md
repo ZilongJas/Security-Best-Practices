@@ -114,4 +114,68 @@ ___
 
 ## Important Note:
 - Without defining rules using `semanage fcontext`, `restorecon` has nothing to apply, which may lead to incorrect labels and access issues.
+___
+### Processes
+- use system monitor on a GUI
+- or `sudo ps -Z` on a command line
+- `sudo ps -efZ` for more
+- using `htop` (must be installed, repo epel-release have to be enabled for RHEL), enable `SECATTR` (Security Attribute)
+___
+### Polices
+- `.fc`
+  - file context definitions
+- `.te`
+  - type enforcement rules, defines transitions
+- `.if`
+  - contains interfaces / functions that can be used in the .te file
+___
+### targeted policy
+- `id -Z`
+  - SELinux ID
+- `sudo semanage login -l`
+  - manage user access with SELinux policies
+___
+### Booleans
+- simple way to configure our system (finally, i'm tired)
+```bash
+getsebool -a
+```
+available booleans
+
+```bash
+semanage boolean -l
+```
+explanations about them
+
+- Temporarily:
+
+         setsebool httpd_read_user_content on
+         
+- Permanently:
+
+         setsebool -P httpd_read_user_content on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
